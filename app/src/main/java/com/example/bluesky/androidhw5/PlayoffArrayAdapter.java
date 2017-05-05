@@ -1,6 +1,7 @@
 package com.example.bluesky.androidhw5;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,15 @@ public class PlayoffArrayAdapter extends ArrayAdapter<PlayoffData> {
         score1.setText(String.valueOf(item.team1_score));
         TextView score2 = (TextView)itemlayout.findViewById(R.id.score_team2);
         score2.setText(String.valueOf(item.team2_score));
+        // 勝者分數顯示紅色
+        if(item.team1_score > item.team2_score)
+        {
+            score1.setTextColor(Color.RED);
+        }
+        else if(item.team2_score > item.team1_score)
+        {
+            score2.setTextColor(Color.RED);
+        }
         // 圖片顯示
         ImageView team1 = (ImageView)itemlayout.findViewById(R.id.img_team1);
         team1.setImageResource(item.team1_id);
